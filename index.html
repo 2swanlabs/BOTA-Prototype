@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bajwa Outplay Tennis Academy | Train. Compete. Outplay.</title>
+<meta name="description" content="High performance Tennis, Padel & Pickleball coaching for beginners to champions near Omaxe Phase 1, Kharar Road, New Chandigarh, Mohali. Kids, junior, adult and tournament performance programs.">
+<link rel="icon" type="image/png" href="BOTA_Logo.png">
+<link rel="apple-touch-icon" href="BOTA_Logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&family=Open+Sans:wght@400;500;600;700;800&family=Lato:wght@400;700;900&family=Nunito:wght@400;500;600;700;800;900&family=Raleway:wght@400;500;600;700;800;900&family=Work+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ PRELOADER ============ -->
+<div class="loader" id="siteLoader">
+  <div class="loader-content">
+    <div class="brand-row">
+      <img src="BOTA_Logo.png" alt="Bajwa Outplay Tennis Academy" class="loader-logo">
+      <div class="loader-brand-name">BOTA<span class="green">TRIBE</span></div>
+    </div>
+    <div class="loading-area">
+      <div class="loading-info">
+        <span>LOADING</span>
+        <span class="percentage" id="loaderPercentage">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="loaderFill"></div>
+        <div class="ball-wrapper" id="loaderBall">
+          <div class="tennis-ball"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var loader = document.getElementById('siteLoader');
+  var percentage = document.getElementById('loaderPercentage');
+  var duration = 4000;
+  var startTime = performance.now();
+
+  function updatePercentage(currentTime) {
+    var elapsed = currentTime - startTime;
+    var progress = Math.min(elapsed / duration, 1);
+    percentage.textContent = Math.round(progress * 100) + '%';
+    if (progress < 1) {
+      requestAnimationFrame(updatePercentage);
+    } else {
+      finishLoading();
+    }
+  }
+
+  function finishLoading() {
+    percentage.textContent = '100%';
+    setTimeout(function () {
+      loader.classList.add('loader-hidden');
+      loader.setAttribute('aria-hidden', 'true');
+      setTimeout(function () { loader.style.display = 'none'; }, 600);
+    }, 250);
+  }
+
+  requestAnimationFrame(updatePercentage);
+
+  /* Safety net: never let the loader block the site if something stalls */
+  window.addEventListener('load', function () {
+    setTimeout(finishLoading, duration + 400);
+  });
+})();
+</script>
+
+<!-- ============ HEADER / NAV ============ -->
+<header class="header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="#home" class="logo">
+      <span class="logo-badge">
+        <img src="BOTA_Logo.png" alt="Bajwa Outplay Tennis Academy crest">
+      </span>
+      <span class="logo-text">
+        <span class="logo-line1">Bajwa Outplay</span>
+        <span class="logo-line2">Tennis Academy</span>
+      </span>
+    </a>
+
+    <nav class="nav" id="siteNav" aria-label="Primary">
+      <ul class="nav-list">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#sports">Sports</a></li>
+        <li class="has-dropdown">
+          <a href="#programs">Programs <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown">
+            <li><a href="#programs">Kids Program</a></li>
+            <li><a href="#programs">Junior Program</a></li>
+            <li><a href="#programs">Adult Program</a></li>
+            <li><a href="#programs">Performance Program</a></li>
+          </ul>
+        </li>
+        <li><a href="#coaches">Coaches</a></li>
+        <li><a href="#facilities">Facilities</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#footer">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a href="#footer" class="btn btn-dark btn-enroll">Enroll Now <span class="btn-dot"><i class="fa-solid fa-baseball"></i></span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-bg" style="background-image:url('hero.jpg');"></div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <p class="eyebrow">Train. Compete. Outplay.</p>
+      <h1>Build Skills.<br>Build Character.<br><span class="text-lime">Outplay</span> Everyday.</h1>
+      <p class="hero-desc">High performance Tennis, Padel &amp; Pickleball training for beginners to champions.</p>
+      <div class="hero-buttons">
+        <a href="#footer" class="btn btn-dark"><i class="fa-regular fa-calendar"></i> Book a Trial Session</a>
+        <a href="#about" class="btn btn-lime">About Our Academy <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="hero-image-frame">
+        <img src="hero.jpg" alt="Tennis player practising a backhand at Bajwa Outplay Tennis Academy" fetchpriority="high" decoding="async">
+      </div>
+      <div class="floating-ball" aria-hidden="true"><i class="fa-solid fa-baseball"></i></div>
+      <div class="hero-badge">
+        <img src="BOTA_Logo.png" alt="Bajwa Outplay Tennis Academy crest">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURE STRIP ============ -->
+<section class="features">
+  <div class="container features-card">
+    <div class="feature-item">
+      <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+      <h3>Expert Coaching</h3>
+      <p>Learn from certified and experienced coaches.</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon"><i class="fa-solid fa-person-walking"></i></div>
+      <h3>All Levels</h3>
+      <p>Programs for kids, juniors, adults &amp; competitive players.</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon"><i class="fa-solid fa-trophy"></i></div>
+      <h3>Tournament Focus</h3>
+      <p>Get match-ready and tournament prepared.</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon"><i class="fa-solid fa-table-tennis-paddle-ball"></i></div>
+      <h3>Premium Facilities</h3>
+      <p>World-class courts and training environment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="container about-inner">
+    <div class="about-content reveal">
+      <p class="eyebrow">About Us</p>
+      <h2>Developing Players.<br><span class="text-lime">Shaping Champions.</span></h2>
+      <p class="about-desc">At Bajwa Outplay Tennis Academy, we believe in building more than just tennis players. We build confidence, discipline and a winning mindset that lasts a lifetime.</p>
+      <div class="about-points">
+        <div class="point">
+          <div class="point-icon"><i class="fa-solid fa-people-group"></i></div>
+          <h4>Discipline</h4>
+          <p>We teach focus, respect and self-belief.</p>
+        </div>
+        <div class="point">
+          <div class="point-icon"><i class="fa-regular fa-heart"></i></div>
+          <h4>Passion</h4>
+          <p>We fuel the love for the game.</p>
+        </div>
+        <div class="point">
+          <div class="point-icon"><i class="fa-solid fa-medal"></i></div>
+          <h4>Performance</h4>
+          <p>We prepare players to compete and win.</p>
+        </div>
+      </div>
+      <a href="#" class="btn btn-dark">Learn More About Us <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="about-image reveal">
+      <div class="about-image-inner">
+        <img src="https://images.pexels.com/photos/30617588/pexels-photo-30617588.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Tennis courts at sunset" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACADEMY REELS (9:16 videos from /assets: vid1.mp4 ... vid7.mp4) ============ -->
+<section class="reels" id="reels">
+  <div class="container">
+    <p class="eyebrow center">Academy Reels</p>
+    <h2 class="section-title center reveal">See Us In <span class="text-lime">Action</span></h2>
+
+    <div class="reels-wrap reveal" id="reelsWrap">
+      <button type="button" class="reels-nav reels-prev" id="reelsPrev" aria-label="Previous videos">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <div class="reels-track" id="reelsTrack">
+
+        <article class="reel-card">
+          <video class="reel-video" src="assets/vid1.mp4#t=0.1" preload="metadata" muted loop playsinline aria-label="Academy reel 1"></video>
+          <button type="button" class="reel-toggle" aria-label="Play video 1"><span class="reel-icon"><i class="fa-solid fa-play"></i></span></button>
+          <button type="button" class="reel-sound" aria-label="Mute video"><i class="fa-solid fa-volume-high"></i></button>
+          <div class="reel-progress"><span></span></div>
+        </article>
+
+        <article class="reel-card">
+          <video class="reel-video" src="assets/vid2.mp4#t=0.1" preload="metadata" muted loop playsinline aria-label="Academy reel 2"></video>
+          <button type="button" class="reel-toggle" aria-label="Play video 2"><span class="reel-icon"><i class="fa-solid fa-play"></i></span></button>
+          <button type="button" class="reel-sound" aria-label="Mute video"><i class="fa-solid fa-volume-high"></i></button>
+          <div class="reel-progress"><span></span></div>
+        </article>
+
+        <article class="reel-card">
+          <video class="reel-video" src="assets/vid3.mp4#t=0.1" preload="metadata" muted loop playsinline aria-label="Academy reel 3"></video>
+          <button type="button" class="reel-toggle" aria-label="Play video 3"><span class="reel-icon"><i class="fa-solid fa-play"></i></span></button>
+          <button type="button" class="reel-sound" aria-label="Mute video"><i class="fa-solid fa-volume-high"></i></button>
+          <div class="reel-progress"><span></span></div>
+        </article>
+
+        <article class="reel-card">
+          <video class="reel-video" src="assets/vid4.mp4#t=0.1" preload="metadata" muted loop playsinline aria-label="Academy reel 4"></video>
+          <button type="button" class="reel-toggle" aria-label="Play video 4"><span class="reel-icon"><i class="fa-solid fa-play"></i></span></button>
+          <button type="button" class="reel-sound" aria-label="Mute video"><i class="fa-solid fa-volume-high"></i></button>
+          <div class="reel-progress"><span></span></div>
+        </article>
+
+        <article class="reel-card">
+          <video class="reel-video" src="assets/vid5.mp4#t=0.1" preload="metadata" muted loop playsinline aria-label="Academy reel 5"></video>
+          <button type="button" class="reel-toggle" aria-label="Play video 5"><span class="reel-icon"><i class="fa-solid fa-play"></i></span></button>
+          <button type="button" class="reel-sound" aria-label="Mute video"><i class="fa-solid fa-volume-high"></i></button>
+          <div class="reel-progress"><span></span></div>
+        </article>
+
+        <article class="reel-card">
+          <video class="reel-video" src="assets/vid6.mp4#t=0.1" preload="metadata" muted loop playsinline aria-label="Academy reel 6"></video>
+          <button type="button" class="reel-toggle" aria-label="Play video 6"><span class="reel-icon"><i class="fa-solid fa-play"></i></span></button>
+          <button type="button" class="reel-sound" aria-label="Mute video"><i class="fa-solid fa-volume-high"></i></button>
+          <div class="reel-progress"><span></span></div>
+        </article>
+
+        <article class="reel-card">
+          <video class="reel-video" src="assets/vid7.mp4#t=0.1" preload="metadata" muted loop playsinline aria-label="Academy reel 7"></video>
+          <button type="button" class="reel-toggle" aria-label="Play video 7"><span class="reel-icon"><i class="fa-solid fa-play"></i></span></button>
+          <button type="button" class="reel-sound" aria-label="Mute video"><i class="fa-solid fa-volume-high"></i></button>
+          <div class="reel-progress"><span></span></div>
+        </article>
+
+      </div>
+
+      <button type="button" class="reels-nav reels-next" id="reelsNext" aria-label="Next videos">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SPORTS WE TRAIN ============ -->
+<section class="sports" id="sports">
+  <div class="container">
+    <p class="eyebrow center">Multi-Sport Academy</p>
+    <h2 class="section-title center reveal">Sports We <span class="text-lime">Train</span></h2>
+    <div class="sports-grid reveal">
+      <div class="sport-card">
+        <div class="sport-icon"><i class="fa-solid fa-baseball"></i></div>
+        <h3>Tennis</h3>
+        <p>Classic singles and doubles coaching on premium hard courts, from first serve to tournament play.</p>
+      </div>
+      <div class="sport-card">
+        <div class="sport-icon"><i class="fa-solid fa-table-tennis-paddle-ball"></i></div>
+        <h3>Padel</h3>
+        <p>Fast-paced doubles action in enclosed courts &mdash; great for building reflexes and match sense.</p>
+      </div>
+      <div class="sport-card">
+        <div class="sport-icon"><i class="fa-solid fa-volleyball"></i></div>
+        <h3>Pickleball</h3>
+        <p>The world's fastest-growing sport &mdash; easy to learn, endlessly competitive, fun for every age.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROGRAMS ============ -->
+<section class="programs" id="programs">
+  <div class="container">
+    <p class="eyebrow center">What We Offer</p>
+    <h2 class="section-title center reveal">Our <span class="text-lime">Programs</span></h2>
+    <div class="programs-grid reveal">
+
+      <div class="program-card">
+        <div class="program-image">
+          <img src="https://images.pexels.com/photos/8224452/pexels-photo-8224452.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=700" alt="Kids tennis program at Bajwa Outplay" loading="lazy" decoding="async">
+          <div class="program-icon"><i class="fa-solid fa-child"></i></div>
+        </div>
+        <div class="program-body">
+          <h3>Kids Program <span>(5-10 Years)</span></h3>
+          <p>Fun and engaging sessions to learn the fundamentals.</p>
+          <a href="#" class="view-details">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="program-card">
+        <div class="program-image">
+          <img src="https://images.pexels.com/photos/8223960/pexels-photo-8223960.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=700" alt="Junior tennis program at Bajwa Outplay" loading="lazy" decoding="async">
+          <div class="program-icon"><i class="fa-solid fa-baseball"></i></div>
+        </div>
+        <div class="program-body">
+          <h3>Junior Program <span>(11-18 Years)</span></h3>
+          <p>Skill development, match play &amp; competitive training.</p>
+          <a href="#" class="view-details">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="program-card">
+        <div class="program-image">
+          <img src="https://images.pexels.com/photos/16639182/pexels-photo-16639182.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=700" alt="Adult tennis program at Bajwa Outplay" loading="lazy" decoding="async">
+          <div class="program-icon"><i class="fa-solid fa-person"></i></div>
+        </div>
+        <div class="program-body">
+          <h3>Adult Program <span>(18+ Years)</span></h3>
+          <p>Improve fitness, skills and enjoy the game.</p>
+          <a href="#" class="view-details">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="program-card">
+        <div class="program-image">
+          <img src="https://images.pexels.com/photos/18016923/pexels-photo-18016923.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=700" alt="Performance tennis program at Bajwa Outplay" loading="lazy" decoding="async">
+          <div class="program-icon"><i class="fa-solid fa-trophy"></i></div>
+        </div>
+        <div class="program-body">
+          <h3>Performance Program <span>(Tournament)</span></h3>
+          <p>High performance training for competitive players.</p>
+          <a href="#" class="view-details">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+    <div class="center-btn"><a href="#" class="btn btn-dark">View All Programs <i class="fa-solid fa-arrow-right"></i></a></div>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE US + COACHES ============ -->
+<section class="why-coaches">
+  <div class="why-choose">
+    <div class="why-bg" style="background-image:url('https://images.pexels.com/photos/342361/pexels-photo-342361.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200');"></div>
+    <div class="why-overlay"></div>
+    <div class="why-content reveal">
+      <h2>Why <span class="text-lime">Choose Us?</span></h2>
+      <ul class="checklist">
+        <li><i class="fa-solid fa-circle-check"></i> Structured Training Curriculum</li>
+        <li><i class="fa-solid fa-circle-check"></i> Individual Attention</li>
+        <li><i class="fa-solid fa-circle-check"></i> Regular Match Play &amp; Tournaments</li>
+        <li><i class="fa-solid fa-circle-check"></i> Fitness &amp; Mental Conditioning</li>
+        <li><i class="fa-solid fa-circle-check"></i> Safe, Positive &amp; Motivating Environment</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="coaches" id="coaches">
+    <h2 class="section-title reveal">Meet Our <span class="text-lime underline">Coach</span></h2>
+    <div class="coaches-grid coaches-grid-single reveal">
+      <div class="coach-card">
+        <div class="coach-photo"><img src="coach.png" alt="Paramveer Singh Bajwa, Head Coach" loading="lazy" decoding="async"></div>
+        <h4>Paramveer Singh Bajwa</h4>
+        <p>Head Coach</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FACILITIES ============ -->
+<section class="facilities" id="facilities">
+  <div class="container">
+    <h2 class="section-title center reveal">Premium <span class="text-lime underline">Facilities</span></h2>
+    <div class="facilities-row reveal">
+      <div class="facility-item"><i class="fa-solid fa-vector-square"></i><span>Hard Court<br>Surface</span></div>
+      <div class="facility-item"><i class="fa-solid fa-lightbulb"></i><span>Floodlight<br>Courts</span></div>
+      <div class="facility-item"><i class="fa-solid fa-dumbbell"></i><span>Fitness and Training<br>Area</span></div>
+      <div class="facility-item"><i class="fa-solid fa-couch"></i><span>Players Sitting<br>and Rest Area</span></div>
+      <div class="facility-item"><i class="fa-solid fa-square-parking"></i><span>Ample Parking<br>Space</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="gallery-header reveal">
+      <h2 class="section-title">Academy Gallery</h2>
+      <a href="https://www.instagram.com/botatribe/?hl=en" target="_blank" rel="noopener" class="instagram-link"><i class="fa-brands fa-instagram"></i> Follow Us on Instagram</a>
+    </div>
+    <div class="gallery-grid reveal">
+      <button class="gallery-item" type="button" data-full="g1.jpg"><img src="g1.jpg" alt="Academy action shot" loading="lazy" decoding="async"></button>
+      <button class="gallery-item" type="button" data-full="g2.jpg"><img src="g2.jpg" alt="Players at the academy" loading="lazy" decoding="async"></button>
+      <button class="gallery-item" type="button" data-full="g3.jpg"><img src="g3.jpg" alt="Court net in evening light" loading="lazy" decoding="async"></button>
+      <button class="gallery-item" type="button" data-full="g4.jpg"><img src="g4.jpg" alt="Forehand shot on court" loading="lazy" decoding="async"></button>
+      <button class="gallery-item" type="button" data-full="g5.jpg"><img src="g5.jpg" alt="Tennis ball close up" loading="lazy" decoding="async"></button>
+      <button class="gallery-item" type="button" data-full="g6.jpg"><img src="g6.jpg" alt="Players seating area" loading="lazy" decoding="async"></button>
+      <button class="gallery-item" type="button" data-full="g7.jpg"><img src="g7.jpg" alt="Aerial view of the courts" loading="lazy" decoding="async"></button>
+    </div>
+    <div class="center-btn"><a href="https://www.instagram.com/botatribe/?hl=en" target="_blank" rel="noopener" class="btn btn-outline">View Full Gallery <i class="fa-solid fa-arrow-right"></i></a></div>
+  </div>
+</section>
+
+<!-- ============ GALLERY LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close gallery image"><i class="fa-solid fa-xmark"></i></button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
+  <div class="lightbox-stage">
+    <img src="" alt="" id="lightboxImage">
+  </div>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
+</div>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testimonials">
+  <div class="container">
+    <p class="eyebrow center">Testimonials</p>
+    <h2 class="section-title center reveal">What Parents &amp; Players <span class="text-lime">Say</span></h2>
+  </div>
+  <div class="testimonials-viewport">
+    <div class="testimonials-track">
+      <div class="testimonial-card">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <p>&quot;The coaches are amazing and truly care about each player's growth. My son has improved so much in just a few months!&quot;</p>
+        <div class="testimonial-author">
+          <img src="https://images.pexels.com/photos/30712815/pexels-photo-30712815.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=150" alt="Neha Malhotra" loading="lazy" decoding="async">
+          <div><h5>Neha Malhotra</h5><span>Parent</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <p>&quot;Outplay Tennis Academy is the best place to train. Great environment and top-class facilities.&quot;</p>
+        <div class="testimonial-author">
+          <img src="https://images.pexels.com/photos/16659308/pexels-photo-16659308.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=150" alt="Karanveer Singh" loading="lazy" decoding="async">
+          <div><h5>Karanveer Singh</h5><span>Player</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <p>&quot;Discipline, focus and fun &ndash; this academy has given my daughter the perfect balance.&quot;</p>
+        <div class="testimonial-author">
+          <img src="https://images.pexels.com/photos/32967602/pexels-photo-32967602.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=150" alt="Richa Gupta" loading="lazy" decoding="async">
+          <div><h5>Richa Gupta</h5><span>Parent</span></div>
+        </div>
+      </div>
+      <!-- duplicate set — hidden from assistive tech, only used so the marquee loops seamlessly -->
+      <div class="testimonial-card" aria-hidden="true">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <p>&quot;The coaches are amazing and truly care about each player's growth. My son has improved so much in just a few months!&quot;</p>
+        <div class="testimonial-author">
+          <img src="https://images.pexels.com/photos/30712815/pexels-photo-30712815.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=150" alt="" loading="lazy" decoding="async">
+          <div><h5>Neha Malhotra</h5><span>Parent</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card" aria-hidden="true">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <p>&quot;Outplay Tennis Academy is the best place to train. Great environment and top-class facilities.&quot;</p>
+        <div class="testimonial-author">
+          <img src="https://images.pexels.com/photos/16659308/pexels-photo-16659308.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=150" alt="" loading="lazy" decoding="async">
+          <div><h5>Karanveer Singh</h5><span>Player</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card" aria-hidden="true">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <p>&quot;Discipline, focus and fun &ndash; this academy has given my daughter the perfect balance.&quot;</p>
+        <div class="testimonial-author">
+          <img src="https://images.pexels.com/photos/32967602/pexels-photo-32967602.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=150" alt="" loading="lazy" decoding="async">
+          <div><h5>Richa Gupta</h5><span>Parent</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER (shares one background with the CTA banner above it) ============ -->
+<footer class="footer" id="footer">
+  <div class="footer-bg" style="background-image:url('enroll-section-background.jpg');"></div>
+  <div class="footer-overlay"></div>
+
+  <div class="footer-cta">
+    <div class="container cta-inner">
+      <div class="cta-text reveal">
+        <h2>Ready to <span class="text-lime">Outplay?</span></h2>
+        <p>Join Bajwa Outplay Tennis Academy and take the first step towards your tennis journey.</p>
+      </div>
+      <a href="#footerActions" class="btn btn-lime">Enroll Now <span class="btn-dot"><i class="fa-solid fa-baseball"></i></span></a>
+    </div>
+  </div>
+
+  <div class="footer-main" id="footerActions">
+  <div class="container footer-grid">
+    <div class="footer-col footer-about">
+      <a href="#home" class="logo footer-logo">
+        <span class="logo-badge">
+          <img src="BOTA_Logo.png" alt="Bajwa Outplay Tennis Academy crest">
+        </span>
+        <span class="logo-text light">
+          <span class="logo-line1">Bajwa Outplay</span>
+          <span class="logo-line2">Tennis Academy</span>
+        </span>
+      </a>
+      <p>Building better players on and off the court.</p>
+      <p class="tagline">Train. Compete. Outplay.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/botatribe/?hl=en" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <div class="footer-links-grid">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#sports">Sports</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#coaches">Coaches</a></li>
+        </ul>
+        <ul>
+          <li><a href="#facilities">Facilities</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#footer">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <ul class="contact-list">
+        <li><i class="fa-solid fa-phone"></i> +91 99880 67867</li>
+        <li><i class="fa-solid fa-envelope"></i> info@bajwaoutplay.com</li>
+        <li><i class="fa-solid fa-location-dot"></i> Near Omaxe Phase 1, Kharar Road, New Chandigarh, Mohali, India 140301</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Newsletter</h4>
+      <p>Stay updated with academy news, events and offers.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" placeholder="Enter your email" required aria-label="Email address">
+        <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+      </form>
+      <p class="newsletter-msg" id="newsletterMsg" aria-live="polite"></p>
+    </div>
+  </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="font-switcher">
+        <label for="fontSwitcher"><i class="fa-solid fa-font"></i> Change Website Font</label>
+        <select id="fontSwitcher">
+          <option value="Poppins" selected>Poppins</option>
+          <option value="Montserrat">Montserrat</option>
+          <option value="Inter">Inter</option>
+          <option value="Roboto">Roboto</option>
+          <option value="Open Sans">Open Sans</option>
+          <option value="Lato">Lato</option>
+          <option value="Nunito">Nunito</option>
+          <option value="Raleway">Raleway</option>
+          <option value="Work Sans">Work Sans</option>
+          <option value="Helvetica">Helvetica</option>
+        </select>
+      </div>
+      <div class="footer-bottom-inner">
+        <span>&copy; 2026 Bajwa Outplay Tennis Academy. All Rights Reserved.</span>
+        <a href="https://www.2swan.in" target="_blank" rel="noopener" class="footer-credit">Website Designed &amp; Developed By: Manu Shukla | 2 Swan</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING ACTIONS: Instagram (bottom-left) + WhatsApp booking widget (bottom-right) ============ -->
+<div class="floating-actions" id="floatingActions">
+
+  <a href="https://www.instagram.com/botatribe/?hl=en" class="ig-float" aria-label="Follow us on Instagram" target="_blank" rel="noopener">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+
+  <div class="wa-widget">
+    <div class="wa-panel" id="waPanel" role="dialog" aria-label="Book a slot" aria-hidden="true">
+      <div class="wa-panel-header">
+        <div class="wa-panel-header-info">
+          <span class="wa-panel-badge"><i class="fa-brands fa-whatsapp"></i></span>
+          <div>
+            <h4>Book Your Slot</h4>
+            <p>We usually reply within minutes</p>
+          </div>
+        </div>
+        <button type="button" class="wa-panel-close" id="waPanelClose" aria-label="Close booking form">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form class="wa-panel-form" id="waBookingForm">
+        <label class="wa-field">
+          <span>Name</span>
+          <input type="text" name="name" placeholder="Your name" required>
+        </label>
+
+        <div class="wa-field">
+          <span>Sport</span>
+          <div class="wa-sport-tabs" role="tablist">
+            <button type="button" class="wa-sport-tab active" data-sport="Tennis" role="tab" aria-selected="true">Tennis</button>
+            <button type="button" class="wa-sport-tab" data-sport="Padel" role="tab" aria-selected="false">Padel</button>
+            <button type="button" class="wa-sport-tab" data-sport="Pickleball" role="tab" aria-selected="false">Pickleball</button>
+          </div>
+        </div>
+
+        <label class="wa-field">
+          <span>Number of Players</span>
+          <div class="wa-input-icon">
+            <i class="fa-solid fa-user"></i>
+            <input type="number" name="players" min="1" max="12" required>
+          </div>
+        </label>
+
+        <div class="wa-field">
+          <span>Date &amp; Time</span>
+          <div class="wa-datetime-row">
+            <div class="wa-input-confirm">
+              <input type="date" name="date" required>
+              <button type="button" class="wa-confirm-btn" aria-label="Confirm date"><i class="fa-solid fa-check"></i></button>
+            </div>
+            <div class="wa-input-confirm">
+              <input type="time" name="time" required>
+              <button type="button" class="wa-confirm-btn" aria-label="Confirm time"><i class="fa-solid fa-check"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="wa-send-btn">
+          Send <i class="fa-brands fa-whatsapp"></i>
+        </button>
+      </form>
+    </div>
+
+    <button type="button" class="wa-toggle" id="waToggle" aria-label="Book a slot on WhatsApp" aria-expanded="false" aria-controls="waPanel">
+      <i class="fa-brands fa-whatsapp"></i>
+    </button>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
