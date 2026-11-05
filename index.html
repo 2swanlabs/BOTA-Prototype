@@ -15,63 +15,6 @@
 </head>
 <body>
 
-<!-- ============ PRELOADER ============ -->
-<div class="loader" id="siteLoader">
-  <div class="loader-content">
-    <div class="brand-row">
-      <img src="BOTA_Logo.png" alt="Bajwa Outplay Tennis Academy" class="loader-logo">
-      <div class="loader-brand-name">BOTA<span class="green">TRIBE</span></div>
-    </div>
-    <div class="loading-area">
-      <div class="loading-info">
-        <span>LOADING</span>
-        <span class="percentage" id="loaderPercentage">0%</span>
-      </div>
-      <div class="progress-track">
-        <div class="progress-fill" id="loaderFill"></div>
-        <div class="ball-wrapper" id="loaderBall">
-          <div class="tennis-ball"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<script>
-(function () {
-  var loader = document.getElementById('siteLoader');
-  var percentage = document.getElementById('loaderPercentage');
-  var duration = 4000;
-  var startTime = performance.now();
-
-  function updatePercentage(currentTime) {
-    var elapsed = currentTime - startTime;
-    var progress = Math.min(elapsed / duration, 1);
-    percentage.textContent = Math.round(progress * 100) + '%';
-    if (progress < 1) {
-      requestAnimationFrame(updatePercentage);
-    } else {
-      finishLoading();
-    }
-  }
-
-  function finishLoading() {
-    percentage.textContent = '100%';
-    setTimeout(function () {
-      loader.classList.add('loader-hidden');
-      loader.setAttribute('aria-hidden', 'true');
-      setTimeout(function () { loader.style.display = 'none'; }, 600);
-    }, 250);
-  }
-
-  requestAnimationFrame(updatePercentage);
-
-  /* Safety net: never let the loader block the site if something stalls */
-  window.addEventListener('load', function () {
-    setTimeout(finishLoading, duration + 400);
-  });
-})();
-</script>
-
 <!-- ============ HEADER / NAV ============ -->
 <header class="header" id="siteHeader">
   <div class="container header-inner">
